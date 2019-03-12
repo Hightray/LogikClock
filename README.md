@@ -12,13 +12,14 @@ my use is:
 
 Workings:
 
-  Button (Pin 7) is used for changing the colors of the LEDs (predefined colors)
-  Button (Pin 2) is used for setting the hours component of the clock.  Results are shown on the hours gauge in real time.
-  Button (Pin 4) is used for setting the minutes component of the clock.  Results are shown on the minutes gauge in real time.
-  Pressing buttons (Pin 2 and Pin 4) at the same time will put the needles on the gauges in a parked position for unpluggin
-  the device.  Although not required, I did not like the fact that when the power is removed, the needles on the gauges would
-  slam down.  This gently places the needles in the off position for 30 seconds.  If the power is not removed from the device
-  by then, normal clock functioning will resume.
+  * Button (Pin 7) is used for changing the colors of the LEDs (predefined colors)
+  * Button (Pin 2) is used for setting the hours component of the clock.  Results are shown on the hours gauge in real time.
+  * Button (Pin 4) is used for setting the minutes component of the clock.  Results are shown on the minutes gauge in real time.
+  * Pressing buttons (Pin 2 and Pin 4) at the same time will put the needles on the gauges in a parked position for unpluggin
+    the device.  Although not required, I did not like the fact that when the power is removed, the needles on the gauges would
+    slam down.  This gently places the needles in the off position for 30 seconds.  If the power is not removed from the device
+    by then, normal clock functioning will resume.
+  * Seconds are not a settable value.
   
 Libraries:
   MD_DS3231 by majicDesigns - https://github.com/MagicDesigns/MD_DS3231

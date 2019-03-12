@@ -38,6 +38,7 @@
 /* Define the type of LED animation to use in LedAnimation method. */
 #define LED_ANIMATION_BLINK     0
 #define LED_ANIMATION_RANDOM    1
+
 /* Used to access the index of each color value in a COLORS array to set the proper color in the RGB LED. */
 #define LED_RED                 0
 #define LED_GREEN               1
@@ -53,7 +54,8 @@
 #define GAUGE_MINUTE_MIN        0
 #define GAUGE_SECOND_MIN        0
 
-#define GAUGE_PARK_TIME         30000     // In milliseconds.
+/* How long in milliseconds to put the gauge needles in a park position before resuming normal operation */
+#define GAUGE_PARK_TIME         30000
 
 /* RGB definitions for the available colors to set the LEDs. */
 const int COLORS[COLOR_COUNT][3] = {
@@ -69,13 +71,16 @@ const int COLORS[COLOR_COUNT][3] = {
   {0, 0, 0}             // Black (Off)
 };
 
-const int HOUR_SET_POINTS[13] = {0, 16, 38, 60, 81, 103, 123, 146, 167, 187, 208, 230, 252}; // 1 based index.
+/* PWN values to line up the clock with the custom gauge face made for the hours representation.  One based index for accessing */
+const int HOUR_SET_POINTS[13] = {0, 16, 38, 60, 81, 103, 123, 146, 167, 187, 208, 230, 252};
 
-  /* The color used for the LEDs while the clock is running */
-  unsigned int runColor = COLOR_WHITE;
+/* The default color used for the LEDs while the clock is running */
+unsigned int runColor = COLOR_WHITE;
 
-  unsigned int lastHourSample = 0;
-  unsigned int lastMinuteSample = 0;
-  unsigned int lastSecondSample = 0;
+/* Used to hold the last time observed.  When a value changes, update the gauges. */
+unsigned int lastHourSample = 0;
+unsigned int lastMinuteSample = 0;
+unsigned int lastSecondSample = 0;
 
-  unsigned int lastHourSetPoint = 0;
+/* Hold value for the hour set point on the gauge.  This value is obtained from the HOUR_SET_POINTS array */
+unsigned int lastHourSetPoint = 0;
